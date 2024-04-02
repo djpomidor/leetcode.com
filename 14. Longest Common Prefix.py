@@ -6,15 +6,18 @@ class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         prefix = ""
         i = 0
-        for x in strs[0]:
-            if x != (strs[1][i] and strs[2][i]):
-                break
-            else:               
-                prefix += x
-                i+=1
-        return prefix        
+        for j in range(len(strs[i])):
+            if strs[0][j] == strs[i+1][j]:
+                prefix = prefix + strs[i][j]
+                i = i+1
+                if i >= len(strs) - 1:
+                    i = 1
+            else:
+                return prefix
+        return prefix
+
     
 
-strs = ["flower","fow","flight"]
+strs = ["flower","flowffff","loght"]
 s = Solution()
 print(s.longestCommonPrefix(strs))
